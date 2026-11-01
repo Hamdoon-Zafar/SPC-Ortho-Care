@@ -4,7 +4,7 @@ import { User } from 'lucide-react';
 import { useApp } from './Providers';
 import { ui } from '@/lib/ui';
 import type { Doctor } from '@/content/clinic';
-import { optimizeImageUrl } from '@/sanity/lib/image';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 /** Featured profile: photo on the start side, introduction on the other (mirrors in RTL, stacks on mobile). */
 export default function Team({ team }: { team: Doctor[] }) {
@@ -17,8 +17,8 @@ export default function Team({ team }: { team: Doctor[] }) {
         <p className="mt-2 text-slate-600 dark:text-slate-300">{t(ui.teamSub)}</p>
         <div className="mt-8 space-y-6">
           {team.map((m) => {
-            // Optimizes the 2MB portrait down to ~40KB WebP
-            const doctorPhoto = optimizeImageUrl(m.photo, 640, 800) ?? m.photo;
+            // Generates compressed ~35KB WebP portrait from Cloudinary
+            const doctorPhoto = getCloudinaryUrl(m.photo, 600);
 
             return (
               <article key={m.id} className="flex flex-col overflow-hidden rounded-2xl border border-brand/15 shadow-sm dark:border-white/10 dark:bg-ink-soft/40 md:flex-row">

@@ -5,10 +5,9 @@ import { ChevronDown, ImageIcon } from 'lucide-react';
 import { useApp } from './Providers';
 import { ui } from '@/lib/ui';
 import type { Service } from '@/content/clinic';
-import { optimizeImageUrl } from '@/sanity/lib/image';
+import { getCloudinaryUrl } from '@/lib/cloudinary';
 
 /** Accessible accordion: headings only by default, one panel open at a time. */
-/** Image slot: shows the service photo, or a neutral placeholder until one is added. */
 function Photo({ src, alt, label, className }: { src?: string; alt: string; label?: string; className: string }) {
   return (
     <div className={`relative overflow-hidden bg-brand-mist dark:bg-ink-soft ${className}`}>
@@ -43,10 +42,11 @@ export default function Services({ services }: { services: Service[] }) {
         <ul className="mt-8 grid items-start gap-3 md:grid-cols-2">
           {services.map((s, i) => {
             const isOpen = open === s.id;
-            // Generates a tiny ~3KB thumbnail for the button icon
-            const thumbUrl = optimizeImageUrl(s.thumb ?? s.image, 96, 96);
-            // Generates an optimized ~35KB banner for when opened
-            const expandedUrl = optimizeImageUrl(s.image, 800, 450);
+            
+            // Generates ultra-lightweight ~3KB WebP from Cloudinary for thumbnail icons
+            const thumbUrl = getCloudinaryUrl(s.thumb ?? s.image, 96);
+            // Generates ~30KB WebP banner from Cloudinary for the expanded panel
+            const expandedUrl = getCloudinaryUrl(s.image, 800);
 
             return (
               <li key={s.id} className="rounded-xl border border-brand/15 bg-white shadow-sm dark:border-white/10 dark:bg-ink">
@@ -76,7 +76,6 @@ export default function Services({ services }: { services: Service[] }) {
                 >
                   <div className="overflow-hidden">
                     <div className="px-4 pb-4">
-                      {/* CRITICAL FIX: Only mount image in DOM when open, preventing 17 unneeded downloads */}
                       {isOpen && (
                         <Photo
                           src={expandedUrl}
