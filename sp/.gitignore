@@ -3,3 +3,5 @@
 .next
 out
 node_modules
+.vercel
+npm-debug.log*
