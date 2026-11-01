@@ -22,7 +22,7 @@ export const clinic: Clinic = {
   mapsUrl: 'https://maps.app.goo.gl/amV1ZVqWT7ozSJrU8',
   // INPUT NEEDED (optional): paste the src="..." address from Google Maps > Share > Embed a map. Leave undefined to use the address search.
   mapEmbedSrc: undefined,
-  whatsapp: '923324456737', // international format, digits only
+  whatsapp: '923324306761', // international format, digits only
   contacts: [
     { name: { en: 'Primary Line', ur: 'مرکزی نمبر' }, role: { en: 'Appointments', ur: 'اپائنٹمنٹ' }, phone: '+923110015200', display: '+92 311 0015200' },
     { name: { en: 'Inquiries', ur: 'معلومات' }, role: { en: 'General inquiries', ur: 'عمومی معلومات' }, phone: '+923324306671', display: '+92 332 4306671' },
