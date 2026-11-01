@@ -1,0 +1,237 @@
+{
+  "services": [
+    {
+      "id": "db-shoes",
+      "titleEn": "DB Shoes",
+      "titleUr": "ڈی بی شوز",
+      "descriptionEn": "Shoes fixed to a Denis Browne bar that hold a child's feet in the correct position. Commonly used after clubfoot correction to help keep the result.",
+      "descriptionUr": "ڈینس براؤن بار والے جوتے جو بچے کے پاؤں کو درست پوزیشن میں رکھتے ہیں۔ عام طور پر کلب فُٹ کی درستی کے بعد نتیجہ برقرار رکھنے کے لیے استعمال ہوتے ہیں۔"
+    },
+    {
+      "id": "hand-splint",
+      "titleEn": "Hand Splint",
+      "titleUr": "ہینڈ اسپلنٹ",
+      "descriptionEn": "A custom-fitted support for the hand, wrist or fingers. It rests the joint, eases pain and protects healing after injury or surgery.",
+      "descriptionUr": "ہاتھ، کلائی یا انگلیوں کے لیے ناپ کے مطابق سہارا۔ یہ جوڑ کو آرام دیتا ہے، درد کم کرتا ہے اور چوٹ یا آپریشن کے بعد حفاظت کرتا ہے۔"
+    },
+    {
+      "id": "hallux-valgus",
+      "titleEn": "Hallux Valgus Splint",
+      "titleUr": "ہیلکس ویلگس اسپلنٹ",
+      "descriptionEn": "A splint that supports the big toe in a better alignment. It helps relieve bunion pressure and discomfort, and is often worn at night.",
+      "descriptionUr": "یہ اسپلنٹ پاؤں کے انگوٹھے کو بہتر سمت میں رکھتا ہے۔ بنیئن کے دباؤ اور تکلیف میں آرام دیتا ہے اور اکثر رات کو پہنا جاتا ہے۔"
+    },
+    {
+      "id": "ptb-brace",
+      "titleEn": "PTB Brace",
+      "titleUr": "پی ٹی بی بریس",
+      "descriptionEn": "A patellar-tendon-bearing brace that shares body weight through the knee area. It protects the lower leg while fractures or injuries heal.",
+      "descriptionUr": "گھٹنے کے ٹینڈن سے وزن بانٹنے والا بریس۔ پنڈلی کی ہڈی ٹوٹنے یا چوٹ کے ٹھیک ہونے کے دوران ٹانگ کو محفوظ رکھتا ہے۔"
+    },
+    {
+      "id": "prosthetic-gloves",
+      "titleEn": "Prosthetic Gloves",
+      "titleUr": "پروسٹھیٹک گلوز",
+      "descriptionEn": "Life-like covers for prosthetic hands, matched to skin tone. They protect the device and give a natural, confident appearance.",
+      "descriptionUr": "مصنوعی ہاتھ کے لیے جلد کے رنگ سے ملتے جلتے قدرتی غلاف۔ یہ آلے کی حفاظت کرتے ہیں اور قدرتی اور پُراعتماد ظاہری شکل دیتے ہیں۔"
+    },
+    {
+      "id": "silicone-insole",
+      "titleEn": "Silicone Foot / Full Insole",
+      "titleUr": "سلیکون فُٹ / فُل انسول",
+      "descriptionEn": "Soft silicone insoles that cushion the foot and spread pressure evenly. Useful for heel or arch discomfort and for added comfort when walking.",
+      "descriptionUr": "نرم سلیکون انسول جو پاؤں کو گدی دیتے ہیں اور دباؤ کو برابر تقسیم کرتے ہیں۔ ایڑی یا آرچ کی تکلیف اور چلنے میں آرام کے لیے مفید ہیں۔"
+    },
+    {
+      "id": "hip-abduction",
+      "titleEn": "Hip Abduction Brace",
+      "titleUr": "ہپ ایبڈکشن بریس",
+      "descriptionEn": "Keeps the hips gently apart in a safe position. Used after hip surgery or for infants and children with hip instability.",
+      "descriptionUr": "کولہوں کو محفوظ پوزیشن میں ہلکا سا کھلا رکھتا ہے۔ کولہے کے آپریشن کے بعد یا بچوں میں کولہے کی کمزوری کے لیے استعمال ہوتا ہے۔"
+    },
+    {
+      "id": "ak-leg",
+      "titleEn": "AK Leg (Above Knee)",
+      "titleUr": "اے کے لیگ (گھٹنے سے اوپر)",
+      "descriptionEn": "A custom prosthetic leg for amputation above the knee, with socket, knee joint and foot. Built to help you stand and walk comfortably.",
+      "descriptionUr": "گھٹنے سے اوپر کٹاؤ کے لیے ناپ کے مطابق مصنوعی ٹانگ، جس میں ساکٹ، گھٹنے کا جوڑ اور پاؤں شامل ہیں۔ آرام سے کھڑے ہونے اور چلنے میں مدد دیتی ہے۔"
+    },
+    {
+      "id": "bk-leg",
+      "titleEn": "BK Leg (Below Knee)",
+      "titleUr": "بی کے لیگ (گھٹنے سے نیچے)",
+      "descriptionEn": "A prosthetic leg for amputation below the knee that keeps your natural knee moving. The socket is shaped to your limb for a secure, comfortable fit.",
+      "descriptionUr": "گھٹنے سے نیچے کٹاؤ کے لیے مصنوعی ٹانگ جو قدرتی گھٹنے کی حرکت برقرار رکھتی ہے۔ ساکٹ آپ کے عضو کے مطابق بنایا جاتا ہے۔"
+    },
+    {
+      "id": "hkafo",
+      "titleEn": "HKAFO",
+      "titleUr": "ایچ کے اے ایف او",
+      "descriptionEn": "A hip-knee-ankle-foot orthosis that supports the whole leg and hip. Helps people with significant weakness to stand and move more safely.",
+      "descriptionUr": "کولہے، گھٹنے، ٹخنے اور پاؤں کو سہارا دینے والا آرتھوسس۔ شدید کمزوری والے مریضوں کو زیادہ محفوظ طریقے سے کھڑے ہونے اور حرکت کرنے میں مدد دیتا ہے۔"
+    },
+    {
+      "id": "kafo",
+      "titleEn": "KAFO",
+      "titleUr": "کے اے ایف او",
+      "descriptionEn": "A knee-ankle-foot orthosis that stabilises the knee and ankle together. Supports standing and walking when leg muscles are weak.",
+      "descriptionUr": "گھٹنے اور ٹخنے کو ایک ساتھ مستحکم کرنے والا آرتھوسس۔ ٹانگ کے پٹھے کمزور ہونے پر کھڑے ہونے اور چلنے میں سہارا دیتا ہے۔"
+    },
+    {
+      "id": "afo",
+      "titleEn": "AAFO / AFO",
+      "titleUr": "اے اے ایف او / اے ایف او",
+      "descriptionEn": "An ankle-foot orthosis that supports the ankle and lifts the foot. Commonly prescribed for foot drop and ankle instability to improve walking.",
+      "descriptionUr": "ٹخنے کو سہارا دینے اور پاؤں کو اٹھانے والا آرتھوسس۔ فُٹ ڈراپ اور ٹخنے کی کمزوری میں چال بہتر بنانے کے لیے تجویز کیا جاتا ہے۔"
+    },
+    {
+      "id": "double-shell",
+      "titleEn": "Double Shell Long Leg Brace",
+      "titleUr": "ڈبل شیل لانگ لیگ بریس",
+      "descriptionEn": "A two-part shell brace running from thigh to foot. Gives firm, even support to keep the leg stable and protected.",
+      "descriptionUr": "ران سے پاؤں تک دو حصوں پر مشتمل بریس۔ ٹانگ کو مضبوط اور یکساں سہارا دے کر مستحکم اور محفوظ رکھتا ہے۔"
+    },
+    {
+      "id": "dfo",
+      "titleEn": "DFO",
+      "titleUr": "ڈی ایف او",
+      "descriptionEn": "A foot orthosis made to support and position the foot correctly. Helps improve comfort and walking when prescribed.",
+      "descriptionUr": "پاؤں کو درست پوزیشن میں رکھنے اور سہارا دینے کے لیے بنایا گیا آرتھوسس۔ تجویز کیے جانے پر آرام اور چال بہتر بنانے میں مدد دیتا ہے۔"
+    },
+    {
+      "id": "humerus-brace",
+      "titleEn": "Humerus Brace",
+      "titleUr": "ہیومرس بریس",
+      "descriptionEn": "A supportive sleeve that stabilises a fractured upper-arm bone. It holds the bone in place while still allowing safe elbow and shoulder movement.",
+      "descriptionUr": "اوپری بازو کی ٹوٹی ہڈی کو سہارا دینے والا بریس۔ ہڈی کو اپنی جگہ رکھتا ہے جبکہ کہنی اور کندھے کو محفوظ حرکت کی اجازت دیتا ہے۔"
+    },
+    {
+      "id": "spinal-jacket",
+      "titleEn": "Spinal Jacket",
+      "titleUr": "اسپائنل جیکٹ",
+      "descriptionEn": "A custom-moulded jacket that supports and limits movement of the spine. Used for spinal conditions, fractures or recovery after surgery.",
+      "descriptionUr": "ریڑھ کی ہڈی کو سہارا دینے اور حرکت محدود کرنے والی ناپ کے مطابق جیکٹ۔ ریڑھ کے مسائل، فریکچر یا آپریشن کے بعد استعمال ہوتی ہے۔"
+    },
+    {
+      "id": "thigh-brace",
+      "titleEn": "Thigh Brace",
+      "titleUr": "تھائی بریس",
+      "descriptionEn": "A brace that supports and protects the thigh. Helps during recovery from muscle injuries or thigh-bone problems.",
+      "descriptionUr": "ران کو سہارا اور تحفظ دینے والا بریس۔ پٹھوں کی چوٹ یا ران کی ہڈی کے مسائل سے صحت یابی میں مدد دیتا ہے۔"
+    }
+  ],
+  "doctor": {
+    "id": "lead",
+    "name": {
+      "en": "Chaudhary Abuzar Akram",
+      "ur": "چوہدری ابوذر اکرم"
+    },
+    "title": {
+      "en": "Our Team Lead",
+      "ur": "ہمارے ٹیم لیڈ"
+    },
+    "role": {
+      "en": "Orthosis & Prosthetic Specialist",
+      "ur": "آرتھوسس و پروسٹھیٹک اسپیشلسٹ"
+    },
+    "bio": {
+      "en": "Chaudhary Abuzar Akram leads our clinic with a commitment to precise, comfortable and durable orthotic and prosthetic care. He personally oversees assessment, fitting and follow-up, so every patient leaves with a device made for them and the confidence to move freely.",
+      "ur": "چوہدری ابوذر اکرم ہمارے کلینک کی قیادت کرتے ہیں، جہاں درست، آرام دہ اور پائیدار آرتھوٹک و پروسٹھیٹک نگہداشت اولین ترجیح ہے۔ معائنہ، فٹنگ اور فالو اپ وہ خود دیکھتے ہیں تاکہ ہر مریض کو اس کے مطابق بنا آلہ اور آزادانہ چلنے کا اعتماد ملے۔"
+    },
+    "tags": [
+      {
+        "en": "Artificial Limbs",
+        "ur": "مصنوعی اعضاء"
+      },
+      {
+        "en": "Braces & Orthoses",
+        "ur": "بریسز و آرتھوسس"
+      },
+      {
+        "en": "Custom Fitting",
+        "ur": "ناپ کے مطابق فٹنگ"
+      },
+      {
+        "en": "Home Service",
+        "ur": "ہوم سروس"
+      }
+    ]
+  },
+  "clinic": {
+    "whatsapp": "923324456737",
+    "contacts": [
+      {
+        "name": {
+          "en": "Primary Line",
+          "ur": "مرکزی نمبر"
+        },
+        "role": {
+          "en": "Appointments",
+          "ur": "اپائنٹمنٹ"
+        },
+        "phone": "+923110015200",
+        "display": "+92 311 0015200"
+      },
+      {
+        "name": {
+          "en": "Inquiries",
+          "ur": "معلومات"
+        },
+        "role": {
+          "en": "General inquiries",
+          "ur": "عمومی معلومات"
+        },
+        "phone": "+923324306671",
+        "display": "+92 332 4306671"
+      },
+      {
+        "name": {
+          "en": "Alternative Line",
+          "ur": "متبادل نمبر"
+        },
+        "role": {
+          "en": "Backup contact",
+          "ur": "متبادل رابطہ"
+        },
+        "phone": "+923092803355",
+        "display": "+92 309 2803355"
+      }
+    ],
+    "homeService": {
+      "en": "Home service available. Appointment is mandatory.",
+      "ur": "ہوم سروس دستیاب ہے۔ اپائنٹمنٹ لازمی ہے۔"
+    },
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=61595513341466"
+    },
+    "mapsUrl": "https://maps.app.goo.gl/amV1ZVqWT7ozSJrU8",
+    "schemaHours": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "11:00",
+        "closes": "22:00"
+      },
+      {
+        "days": [
+          "Friday"
+        ],
+        "opens": "11:00",
+        "closes": "13:00"
+      },
+      {
+        "days": [
+          "Friday"
+        ],
+        "opens": "15:00",
+        "closes": "22:00"
+      }
+    ]
+  }
+}

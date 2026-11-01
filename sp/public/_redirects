@@ -1,0 +1,2 @@
+# Lets the Sanity Studio's in-app URLs (e.g. /admin/structure/service) load on refresh. Works on Cloudflare Pages and Netlify.
+/admin/*  /admin/index.html  200

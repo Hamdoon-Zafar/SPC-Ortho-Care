@@ -1,0 +1,32 @@
+{
+  "name": "sp-ortho-care",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve out",
+    "migrate": "node --env-file=.env.local scripts/migrate-to-sanity.mjs",
+    "migrate:dry": "node scripts/migrate-to-sanity.mjs --dry-run"
+  },
+  "dependencies": {
+    "@portabletext/react": "^3.2.4",
+    "@sanity/client": "^6.29.1",
+    "@sanity/image-url": "^1.2.0",
+    "lucide-react": "^0.453.0",
+    "next": "^14.2.15",
+    "next-sanity": "^9.12.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.99.0",
+    "styled-components": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5"
+  }
+}

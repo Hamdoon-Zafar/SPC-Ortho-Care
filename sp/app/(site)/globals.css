@@ -1,0 +1,6 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html { scroll-behavior: smooth; scroll-padding-top: 8rem; }
+html[lang='ur'] body { font-family: var(--font-urdu), system-ui, sans-serif; line-height: 1.9; }
+body { @apply bg-white text-slate-800 antialiased dark:bg-ink dark:text-slate-200; }
+:focus-visible { @apply outline outline-2 outline-offset-2 outline-brand-sky; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
