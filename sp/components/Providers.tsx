@@ -7,13 +7,18 @@ type Ctx = { lang: Lang; toggleLang: () => void; dark: boolean; toggleDark: () =
 const AppCtx = createContext<Ctx>(null as unknown as Ctx);
 export const useApp = () => useContext(AppCtx);
 
+const BAR = { light: '#ffffff', dark: '#0B1B2E' }; // browser address-bar colour (<meta name="theme-color">)
+const setBar = (dark: boolean) => document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? BAR.dark : BAR.light);
+
 /** Holds language + theme. The inline script in layout.tsx applies them before paint (no flash). */
 export default function Providers({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('en');
   const [dark, setDark] = useState(false);
   useEffect(() => {
     setLang(document.documentElement.lang === 'ur' ? 'ur' : 'en');
-    setDark(document.documentElement.classList.contains('dark'));
+    const isDark = document.documentElement.classList.contains('dark');
+    setDark(isDark);
+    setBar(isDark);
   }, []);
   const toggleLang = useCallback(() => {
     const next: Lang = lang === 'en' ? 'ur' : 'en';
@@ -25,6 +30,7 @@ export default function Providers({ children }: { children: ReactNode }) {
   const toggleDark = useCallback(() => {
     const next = !dark; setDark(next);
     document.documentElement.classList.toggle('dark', next);
+    setBar(next);
     localStorage.setItem('theme', next ? 'dark' : 'light');
   }, [dark]);
   return <AppCtx.Provider value={{ lang, toggleLang, dark, toggleDark, t: (b) => b[lang] }}>{children}</AppCtx.Provider>;

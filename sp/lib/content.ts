@@ -1,8 +1,8 @@
 import { clinic as localClinic, services as localServices, team as localTeam } from '@/content/clinic';
-import type { Bi, Clinic, Doctor, Hours, Service } from '@/content/clinic';
+import type { Bi, Clinic, Doctor, Hours, Img, Service } from '@/content/clinic';
 import { hasSanity } from '@/sanity/env';
 import { client } from '@/sanity/lib/client';
-import { imageUrl } from '@/sanity/lib/image';
+import { imgSet, thumbUrl } from '@/sanity/lib/image';
 
 /**
  * Data layer. Everything is fetched from Sanity at BUILD time (the site is a static export).
@@ -10,7 +10,10 @@ import { imageUrl } from '@/sanity/lib/image';
  * local content in content/clinic.ts so the site always builds and never shows empty sections.
  */
 async function query<T>(groq: string): Promise<T | null> {
-  if (!hasSanity) return null;
+  if (!hasSanity) {
+    console.warn('[sanity] NEXT_PUBLIC_SANITY_PROJECT_ID is not set: building with local fallback content.');
+    return null;
+  }
   try {
     return await client.fetch<T>(groq);
   } catch (e) {
@@ -26,17 +29,19 @@ export async function getServices(): Promise<Service[]> {
   const rows = await query<ServiceRow[]>(`*[_type == "service"] | order(order asc) {
     _id, title, titleUr, "slug": slug.current, descriptionEn, descriptionUr, image
   }`);
-  if (!rows?.length) return localServices;
+  if (!rows?.length) {
+    if (hasSanity) console.warn('[sanity] no services found in the dataset: run `npm run migrate`. Using local fallback content.');
+    return localServices;
+  }
   return rows.map((r) => {
     const id = r.slug ?? r._id;
-    const local = localServices.find((s) => s.id === id)?.image; // keep the old local photo if none uploaded yet
-    const has = Boolean(r.image?.asset);
+    const local = localServices.find((s) => s.id === id); // old local photo is kept until one is uploaded to Sanity
     return {
       id,
       name: { en: r.title, ur: r.titleUr || r.title },
       desc: { en: r.descriptionEn, ur: r.descriptionUr || r.descriptionEn },
-      image: has ? imageUrl(r.image, 1200, 675) : local, // 16:9, honours the editor's hotspot
-      thumb: has ? imageUrl(r.image, 160, 160) : local,   // square thumbnail
+      image: imgSet(r.image, [480, 800, 1120], 9 / 16) ?? local?.image, // 16:9 panel photo
+      thumb: thumbUrl(r.image) ?? local?.thumb,                          // square list thumbnail
     };
   });
 }
@@ -62,12 +67,12 @@ export async function getTeam(): Promise<Doctor[]> {
     qualifications: r.qualifications ? bi(r.qualifications, r.qualificationsUr) : undefined,
     bio: bi(r.bio, r.bioUr),
     tags: (r.specialties ?? []).map((s, j) => bi(s, r.specialtiesUr?.[j])),
-    photo: r.image?.asset ? imageUrl(r.image, 800, 1000) : i === 0 ? localTeam[0]?.photo : undefined,
+    photo: imgSet(r.image, [400, 640, 800], 5 / 4) ?? (i === 0 ? localTeam[0]?.photo : undefined), // 4:5 portrait
   }));
 }
 
 // ---------- Announcements ----------
-export type Post = { id: string; title: string; date: string; image?: string; content: any[] };
+export type Post = { id: string; title: string; date: string; image?: Img; content: any[] };
 
 export async function getPosts(): Promise<Post[]> {
   const rows = await query<any[]>(`*[_type == "post" && defined(publishedAt)] | order(publishedAt desc)[0...3] {
@@ -75,7 +80,7 @@ export async function getPosts(): Promise<Post[]> {
   }`);
   return (rows ?? []).map((r) => ({
     id: r._id, title: r.title, date: r.publishedAt, content: r.content ?? [],
-    image: r.mainImage?.asset ? imageUrl(r.mainImage, 1200, 675) : undefined,
+    image: imgSet(r.mainImage, [480, 800, 1120], 9 / 16),
   }));
 }
 

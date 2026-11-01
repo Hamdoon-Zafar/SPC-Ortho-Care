@@ -7,7 +7,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: { DEFAULT: '#1B5FA8', dark: '#17408B', sky: '#1A9BC6', leaf: '#22A55B', sun: '#F39C2B', mist: '#DCEBF8' },
+        brand: { DEFAULT: '#1B5FA8', dark: '#17408B', sky: '#1A9BC6', sun: '#F39C2B', mist: '#DCEBF8' },
         ink: { DEFAULT: '#0B1B2E', soft: '#12294A' }, // dark-mode surfaces
       },
       fontFamily: { sans: ['var(--font-latin)', 'var(--font-urdu)', 'system-ui', 'sans-serif'] },

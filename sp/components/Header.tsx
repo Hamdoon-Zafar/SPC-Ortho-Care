@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { Moon, Sun } from 'lucide-react';
 import { useApp } from './Providers';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
@@ -13,10 +12,10 @@ export default function Header({ name }: { name: string }) {
   const active = useScrollSpy(IDS);
   const btn = 'inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-brand/30 px-3 text-sm font-semibold text-brand hover:bg-brand-mist dark:border-brand-mist/30 dark:text-brand-mist dark:hover:bg-ink-soft';
   return (
-    <header className="sticky top-0 z-50 border-b border-brand/10 bg-white/90 backdrop-blur dark:border-white/10 dark:bg-ink/90">
+    <header className="sticky top-0 z-50 border-b border-brand/10 bg-white dark:border-white/10 dark:bg-ink">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 px-4 py-2">
         <a href="#home" className="flex min-w-0 items-center gap-2">
-          <Image src="/logo-sm.png" alt="" width={40} height={40} priority className="h-10 w-10" />
+          <img src="/logo-80.webp" srcSet="/logo-80.webp 80w, /logo-120.webp 120w" sizes="40px" alt="" width={40} height={40} className="h-10 w-10" />
           <span className="truncate text-sm font-bold leading-tight text-brand-dark dark:text-white sm:text-base">{name}</span>
         </a>
         {/* Nav: centre on desktop, second row on mobile */}

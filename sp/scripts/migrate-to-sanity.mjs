@@ -34,15 +34,8 @@ if (!DRY && (!projectId || !token)) {
 }
 const client = DRY ? null : createClient({ projectId, dataset, apiVersion, token, useCdn: false });
 
-// Service id -> photo file in /public/services (names on disk differ from the ids for four services).
-const SERVICE_FILES = {
-  'db-shoes': 'db-shoes.jpg', 'hand-splint': 'hand-splint.jpg', 'hallux-valgus': 'hallux-splint.jpg',
-  'ptb-brace': 'ptb-brace.jpg', 'prosthetic-gloves': 'prosthetic-gloves.jpg', 'silicone-insole': 'foot-insole.jpg',
-  'hip-abduction': 'hip-abduction.jpg', 'ak-leg': 'ak-leg.jpg', 'bk-leg': 'bk-leg.jpg', hkafo: 'hkafo.jpg',
-  kafo: 'kafo.jpg', afo: 'aafo.jpg', 'double-shell': 'double-shell-long-leg.jpg', dfo: 'dfo.jpg',
-  'humerus-brace': 'humerus-brace.jpg', 'spinal-jacket': 'spinal-jacket.jpg', 'thigh-brace': 'thigh-brace.jpg',
-};
-const DOCTOR_FILE = 'team/Abuzar.jpg'; // inside /public
+// Photos live in /public: services/<service-id>.webp and team/abuzar.webp (same files the site uses as local fallback).
+const DOCTOR_FILE = 'team/abuzar.webp';
 
 const key = () => randomUUID().slice(0, 8); // Sanity needs a unique _key on every array item
 
@@ -66,7 +59,7 @@ async function main() {
 
   console.log('Services');
   for (const [i, s] of seed.services.entries()) {
-    const image = SERVICE_FILES[s.id] ? await uploadImage(`services/${SERVICE_FILES[s.id]}`) : undefined;
+    const image = await uploadImage(`services/${s.id}.webp`);
     await save({
       _id: `service-${s.id}`, _type: 'service', title: s.titleEn, titleUr: s.titleUr,
       slug: { _type: 'slug', current: s.id }, descriptionEn: s.descriptionEn, descriptionUr: s.descriptionUr,

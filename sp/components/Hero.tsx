@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useApp } from './Providers';
 import { ui } from '@/lib/ui';
 
@@ -16,8 +15,8 @@ export default function Hero() {
             <a href="#services" className="rounded-full border border-white/60 px-6 py-3 font-semibold hover:bg-white/10">{t(ui.heroCta2)}</a>
           </div>
         </div>
-        <Image src="/logo.png" alt="South Punjab Ortho Care Center logo" width={320} height={320}
-          className="mx-auto h-52 w-52 drop-shadow-2xl md:h-80 md:w-80" priority />
+        <img src="/logo-320.webp" srcSet="/logo-320.webp 320w, /logo-640.webp 640w" sizes="(min-width:768px) 320px, 208px" alt="South Punjab Ortho Care Center logo" width={320} height={320} decoding="async"
+          className="mx-auto h-52 w-52 drop-shadow-2xl md:h-80 md:w-80" />
       </div>
     </section>
   );

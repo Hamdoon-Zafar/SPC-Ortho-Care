@@ -1,14 +1,15 @@
-// LOCAL FALLBACK CONTENT. The live site reads from Sanity (see lib/content.ts); this file is used only when
-// Sanity is not configured or unreachable, and as the source for scripts/seed-data.json.
-// All editable content lives here. To adopt Sanity/Contentful, keep these types and
-// replace the bodies of the getters in lib/content.ts with CMS queries.
+// LOCAL FALLBACK CONTENT. The live site reads from Sanity (lib/content.ts); this file is only used when Sanity is
+// not configured, unreachable or empty, and it is the source for scripts/seed-data.json (one-time migration).
+// Once your Sanity data is verified you can empty this file down to the types below.
 export type Bi = { en: string; ur: string };
-export type Service = { id: string; name: Bi; desc: Bi; image?: string; thumb?: string };
-export type Doctor = { id: string; name: Bi; title: Bi; role: Bi; bio: Bi; tags: Bi[]; qualifications?: Bi; photo?: string };
+/** Responsive image: `src` is the default file, `srcSet` lets phones download a smaller one. */
+export type Img = { src: string; srcSet?: string };
+export type Service = { id: string; name: Bi; desc: Bi; image?: Img; thumb?: string };
+export type Doctor = { id: string; name: Bi; title: Bi; role: Bi; bio: Bi; tags: Bi[]; qualifications?: Bi; photo?: Img };
 export type Contact = { name: Bi; role: Bi; phone: string; display: string };
 export type Hours = { day: Bi; open: Bi };
 export type Clinic = {
-  name: string; address: Bi; street: string; city: string; postalCode: string; mapQuery: string; mapsUrl?: string; mapEmbedSrc?: string;  whatsapp: string; contacts: Contact[]; hours: Hours[]; homeService: Bi;   social?: { facebook?: string; instagram?: string };
+  name: string; address: Bi; street: string; city: string; postalCode: string; mapQuery: string; mapsUrl?: string; mapEmbedSrc?: string; whatsapp: string; contacts: Contact[]; hours: Hours[]; homeService: Bi; social?: { facebook?: string; instagram?: string };
   schemaHours: { days: string[]; opens: string; closes: string }[];
 };
 
@@ -17,7 +18,9 @@ export const clinic: Clinic = {
   name: 'South Punjab Ortho Care Center',
   address: { en: 'Suraj Miani Road, Chungi No.1, Multan, 59070, Pakistan', ur: 'سورج میانی روڈ، چونگی نمبر 1، ملتان، 59070، پاکستان' },
   street: 'Suraj Miani Road, Chungi No.1', city: 'Multan', postalCode: '59070',
-  mapQuery: 'South Punjab OPD Clinic, Suraj Miani Road, Chungi No.1, Multan, 59070, Pakistan',  mapsUrl: 'https://maps.app.goo.gl/amV1ZVqWT7ozSJrU8',
+  mapQuery: 'South Punjab OPD Clinic, Suraj Miani Road, Chungi No.1, Multan, 59070, Pakistan',
+  mapsUrl: 'https://maps.app.goo.gl/amV1ZVqWT7ozSJrU8',
+  // INPUT NEEDED (optional): paste the src="..." address from Google Maps > Share > Embed a map. Leave undefined to use the address search.
   mapEmbedSrc: undefined,
   whatsapp: '923324456737', // international format, digits only
   contacts: [
@@ -57,7 +60,7 @@ export const team: Doctor[] = [
       { en: 'Artificial Limbs', ur: 'مصنوعی اعضاء' }, { en: 'Braces & Orthoses', ur: 'بریسز و آرتھوسس' },
       { en: 'Custom Fitting', ur: 'ناپ کے مطابق فٹنگ' }, { en: 'Home Service', ur: 'ہوم سروس' },
     ],
-    photo: '/team/Abuzar.jpg'
+    photo: { src: '/team/abuzar.webp' },
   },
 ];
 
@@ -82,27 +85,9 @@ const baseServices: Service[] = [
   s('thigh-brace', 'Thigh Brace', 'تھائی بریس', 'A brace that supports and protects the thigh. Helps during recovery from muscle injuries or thigh-bone problems.', 'ران کو سہارا اور تحفظ دینے والا بریس۔ پٹھوں کی چوٹ یا ران کی ہڈی کے مسائل سے صحت یابی میں مدد دیتا ہے۔'),
 ];
 
-// Service photos: drop files into /public/services and list them here, e.g.
-// 'db-shoes': '/services/db-shoes.jpg'. Services without an entry show a placeholder.
-
-const serviceImages: Record<string, string> = {
-  'db-shoes': '/services/db-shoes.jpg',
-  'hand-splint': '/services/hand-splint.jpg',
-  'hallux-valgus': '/services/hallux-splint.jpg',
-  'ptb-brace': '/services/ptb-brace.jpg',
-  'prosthetic-gloves': '/services/prosthetic-gloves.jpg',
-  'silicone-insole': '/services/foot-insole.jpg',
-  'hip-abduction': '/services/hip-abduction.jpg',
-  'ak-leg': '/services/ak-leg.jpg',
-  'bk-leg': '/services/bk-leg.jpg',
-  'hkafo': '/services/hkafo.jpg',
-  'kafo': '/services/kafo.jpg',
-  'afo': '/services/aafo.jpg',
-  'double-shell': '/services/double-shell-long-leg.jpg',
-  'dfo': '/services/dfo.jpg',
-  'humerus-brace': '/services/humerus-brace.jpg',
-  'spinal-jacket': '/services/spinal-jacket.jpg',
-  'thigh-brace': '/services/thigh-brace.jpg',
-};
-
-export const services: Service[] = baseServices.map((s) => ({ ...s, image: serviceImages[s.id] }));
+// Local fallback photos follow one naming rule: /public/services/<id>.webp (16:9) and /public/services/thumb/<id>.webp (square).
+export const services: Service[] = baseServices.map((s) => ({
+  ...s,
+  image: { src: `/services/${s.id}.webp` },
+  thumb: `/services/thumb/${s.id}.webp`,
+}));

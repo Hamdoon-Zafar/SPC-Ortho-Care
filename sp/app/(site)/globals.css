@@ -1,5 +1,8 @@
 @tailwind base; @tailwind components; @tailwind utilities;
-html { scroll-behavior: smooth; scroll-padding-top: 8rem; }
+/* Pin the colour scheme so phones never auto-darken or tint the page: light unless the visitor picks dark. */
+:root { color-scheme: light; color-scheme: only light; }
+:root.dark { color-scheme: dark; }
+html { scroll-behavior: smooth; scroll-padding-top: 8rem; @apply bg-white dark:bg-ink; }
 html[lang='ur'] body { font-family: var(--font-urdu), system-ui, sans-serif; line-height: 1.9; }
 body { @apply bg-white text-slate-800 antialiased dark:bg-ink dark:text-slate-200; }
 :focus-visible { @apply outline outline-2 outline-offset-2 outline-brand-sky; }

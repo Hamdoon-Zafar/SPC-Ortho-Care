@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { useApp } from './Providers';
 import { ui } from '@/lib/ui';
@@ -16,7 +15,7 @@ export default function Updates({ posts }: { posts: Post[] }) {
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {posts.map((p) => (
             <article key={p.id} className="overflow-hidden rounded-2xl border border-brand/15 dark:border-white/10 dark:bg-ink-soft/40">
-              {p.image && <div className="relative aspect-[16/9]"><Image src={p.image} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" /></div>}
+              {p.image && <div className="relative aspect-[16/9]"><img src={p.image.src} srcSet={p.image.srcSet} sizes="(min-width:768px) 360px, 100vw" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" /></div>}
               <div className="p-5">
                 <time dateTime={p.date} className="text-sm text-slate-600 dark:text-slate-400">
                   {new Date(p.date).toLocaleDateString(lang === 'ur' ? 'ur-PK' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
